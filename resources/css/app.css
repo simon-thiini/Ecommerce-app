@@ -1,0 +1,38 @@
+/* public/css/style.css */
+
+body {
+    background-color: orange;
+}
+
+/* Rest of your styles */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    height: 70vh;
+}
+
+.welcome-text {
+    max-width: 400px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+}
+
+.card {
+    margin: 0 10px;
+}
+
+.motorcycle-animation {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.motorcycle-image {
+    max-width: 100%;
+    height: auto;
+}
