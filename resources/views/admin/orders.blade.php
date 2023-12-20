@@ -22,7 +22,35 @@
                                     <p class="mb-1"><strong>Order Placed At:</strong> {{ $order->created_at }}</p>
 
                                     <!-- Email link with dynamically set email address -->
-                                    <a href="mailto:{{ $order->email }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Send Email</a>
+                                    <a style="background-color: orange" href="mailto:{{ $order->email }}" target="_blank" rel="noopener noreferrer" class="btn ">Send Email</a>
+
+                                    <!-- Status badges -->
+                                    <p class="mb-1"><strong>Status:</strong>
+                                        @if($order->status == 'placed')
+                                            <span class="badge bg-info text-dark">Placed</span>
+                                        @elseif($order->status == 'in_progress')
+                                            <span class="badge bg-warning text-dark">In Progress</span>
+                                        @elseif($order->status == 'finished')
+                                            <span class="badge bg-success">Finished</span>
+                                        @endif
+                                    </p>
+
+                                    <!-- Buttons for updating status -->
+                                    <form action="{{ route('order.update-status', ['order' => $order, 'status' => 'placed']) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-info btn-sm">Set Placed</button>
+                                    </form>
+                                    <form action="{{ route('order.update-status', ['order' => $order, 'status' => 'in_progress']) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-warning btn-sm">Set In Progress</button>
+                                    </form>
+                                    <form action="{{ route('order.update-status', ['order' => $order, 'status' => 'finished']) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-success btn-sm">Set Finished</button>
+                                    </form>
 
                                     <!-- Add more details or buttons as needed -->
                                 </div>

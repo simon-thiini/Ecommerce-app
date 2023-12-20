@@ -36,4 +36,13 @@ class OrderController extends Controller
     {
         return view('order-confirmation', compact('order'));
     }
+        public function updateStatus(Order $order, $status)
+        {
+            // Update the order status
+            $order->status = $status;
+            $order->save();
+
+            // Redirect back to the orders page or wherever needed
+            return redirect()->route('admin.orders')->with('success', 'Order status updated successfully.');
+        }
 }

@@ -33,6 +33,11 @@ Route::post('/process-order', [OrderController::class, 'processOrder'])->name('p
 Route::get('/order/confirmation/{order}', [OrderController::class, 'confirmation'])->name('order.confirmation');
 Route::get('/order/{order}/edit', [OrderController::class, 'edit'])->name('order.edit');
 Route::patch('/order/{order}', [OrderController::class, 'update'])->name('order.update');
+Route::patch('/order/{order}/update-status/{status}', [OrderController::class, 'updateStatus'])
+    ->name('order.update-status');
+    Route::patch('/order/{order}/update-status/{status}', [OrderController::class, 'updateStatus'])
+    ->name('order.update-status');
+
 
 Route::get('/custom-login', 'Auth\LoginController@showLoginForm')->name('login');
 
