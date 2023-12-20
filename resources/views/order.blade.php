@@ -11,21 +11,9 @@
                 <label for="customer_name">Your Name:</label>
                 <input type="text" id="customer_name" name="customer_name" class="form-control" required>
             </div>
-
-            <div class="form-group">
-                <label for="country_code">Country Code:</label>
-                <select id="country_code" name="country_code" class="form-control" required>
-                    <option value="+254">+254 (Kenya)</option>
-                    <option value="+255">+255 (Uganda)</option>
-                    <option value="+256">+256 (Tazania)</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="phone_number">Phone Number:</label>
-                <input type="tel" id="phone_number" name="phone_number" class="form-control" required>
-                <small>Exclude the country code</small>
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
             <div class="form-group">
@@ -51,7 +39,8 @@
                 <textarea id="description" name="description" class="form-control" required></textarea>
             </div>
 
-            <button type="button" class="btn" style="background-color: orange" onclick="showConfirmation()">Place Order</button>
+            <button type="submit" class="btn" style="background-color: orange">Place Order</button>
+
         </form>
     </div>
    </div>

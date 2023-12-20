@@ -32,10 +32,8 @@
         </li>
       </ul>
       <form class="d-flex">
-         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('order') }}">MAKE AN ORDER</a>
-        </li>
-        <button class="nav-link active" aria-current="page"href='{{ route('admin.dashboard') }}'">Admin</button>
+        <a class="nav-link active" aria-current="page"href='{{ route('admin.orders') }}'">Admin</a>
       </form>
     </div>
   </div>

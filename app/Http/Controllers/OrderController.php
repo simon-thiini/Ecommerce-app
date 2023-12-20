@@ -4,39 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-     public function create(Request $request){
+    public function create()
+    {
         return view('order');
     }
+
     public function processOrder(Request $request)
     {
         $validatedData = $request->validate([
+            'customer_name' => 'required|string',
+            'email' => 'required|email',
+            'service_needed' => 'required|string',
             'part_name' => 'required|string',
             'quantity' => 'required|integer',
-            'customer_name' => 'required|string',
-            'contact_number' => 'required|string', // Consider using phone validation library
+            'description' => 'required|string',
         ]);
 
-        // Store form data in the session
-        Session::put('orderFormData', $validatedData);
-
-        return redirect()->route('order.confirmation');
-    }
-    public function confirmOrder()
-    {
-        // Retrieve form data from the session
-        $orderFormData = Session::get('orderFormData');
+        // Set contact_number to an empty string if not provided
+        $validatedData['contact_number'] = $validatedData['contact_number'] ?? '';
 
         // Save the order to the database
-        $order = Order::create($orderFormData);
+        $order = Order::create($validatedData);
 
-        // Clear the session data
-        Session::forget('orderFormData');
-
-        return "Order placed successfully!";
+        return redirect()->route('order.confirmation', ['order' => $order]);
     }
 
+    public function confirmation(Order $order)
+    {
+        return view('order-confirmation', compact('order'));
+    }
 }
