@@ -30,7 +30,7 @@
         function dismissOrder() {
             // You can add logic for dismiss action
             alert('Order dismissed. Proceeding as is...');
-            window.location.href = "{{ route('order.confirmation', ['order' => $order]) }}";
+            window.location.href = "{{ route('order') }}";
         }
 
         function deleteOrder() {
@@ -45,7 +45,7 @@
             // You can add logic for edit action
             alert('Redirecting to edit order page...');
             // You may redirect to the edit page or implement a modal for editing
-            // window.location.href = "{{ route('order.edit', ['order' => $order]) }}";
+             window.location.href = "{{ route('order') }}";
         }
     </script>
 @endsection
