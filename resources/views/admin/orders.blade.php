@@ -20,10 +20,10 @@
                                     <p class="mb-1"><strong>Quantity:</strong> {{ $order->quantity }}</p>
                                     <p class="mb-1"><strong>Description:</strong> {{ $order->description }}</p>
                                     <p class="mb-1"><strong>Order Placed At:</strong> {{ $order->created_at }}</p>
-                                    {{-- <form action="{{ route('admin.orders.send-email', ['order' => $order]) }}" method="post">
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary">Send Email</button>
-                                    </form> --}}
+
+                                    <!-- Email link with dynamically set email address -->
+                                    <a href="mailto:{{ $order->email }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Send Email</a>
+
                                     <!-- Add more details or buttons as needed -->
                                 </div>
                             @endforeach
