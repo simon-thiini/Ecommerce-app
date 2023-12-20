@@ -37,4 +37,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+     public function showLoginForm()
+    {
+        return view('auth.login'); // This assumes you have a login blade view in the auth folder.
+    }
 }
