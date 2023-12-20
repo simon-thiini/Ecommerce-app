@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Your App Title</title>
+    <title>Evalast</title>
     <!-- Add your stylesheets, scripts, etc. -->
 
     <!-- Bootstrap CSS -->
